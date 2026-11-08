@@ -1,0 +1,290 @@
+{
+  "evaluator": {
+    "evaluator": {
+      "id": "a920ff87-3099-4c1e-9962-1cb45ed6851b",
+      "name": "matches-reviewer-2026-11-08-12-26",
+      "type": "code",
+      "created_at": "2026-11-08T12:29:07.649157Z",
+      "updated_at": "2026-11-08T12:29:07.649157Z",
+      "feedback_keys": [
+        "matches_reviewer"
+      ],
+      "is_managed": false,
+      "code_evaluator": {
+        "evaluator_id": "a920ff87-3099-4c1e-9962-1cb45ed6851b",
+        "code": "\nimport re, json\ndef perform_eval(run, example):\n    crit = str((example.get(\"outputs\") or {}).get(\"criteria\", \"\"))\n    m = re.search(r\"category (\\w+), priority (P\\d)\", crit)\n    text = re.sub(r\"\\s+\", \"\", json.dumps(run.get(\"outputs\")))\n    ok = bool(m) and ('\\\\\"category\\\\\":\\\\\"%s\\\\\"' % m.group(1)) in text and ('\\\\\"priority\\\\\":\\\\\"%s\\\\\"' % m.group(2)) in text\n    return {\"matches_reviewer\": 1 if ok else 0}\n",
+        "language": "python",
+        "advanced_features_enabled": false,
+        "require_attachments": false,
+        "code_evaluator_input": null,
+        "workspace_secrets_keys": []
+      },
+      "run_rules": []
+    }
+  },
+  "job": {
+    "id": "e65e5300-8eb4-4700-92dc-ef78df10ea0b",
+    "repo_id": "d8b7e21e-3f9f-4799-9d21-1940bdeb1446",
+    "status": "successful",
+    "algorithm": "promptim",
+    "config": {
+      "message_index": 0,
+      "task_description": "Route support tickets for Acme into a category and a priority.",
+      "dataset_name": "ticket-router-thumbs-down-2026-11-08-12-26",
+      "train_split": null,
+      "dev_split": null,
+      "test_split": null,
+      "evaluators": [
+        "a920ff87-3099-4c1e-9962-1cb45ed6851b"
+      ],
+      "num_epochs": 3,
+      "auto_commit": false
+    },
+    "results": [
+      {
+        "timestamp": "2026-11-08T12:29:10.664666",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "timestamp": "2026-11-08T12:29:10.678783",
+        "x": 1,
+        "y": 5
+      },
+      {
+        "timestamp": "2026-11-08T12:29:12.696263",
+        "x": 2,
+        "y": 9
+      },
+      {
+        "timestamp": "2026-11-08T12:29:14.714786",
+        "x": 3,
+        "y": 10
+      }
+    ],
+    "created_at": "2026-11-08T12:29:08.177475+00:00",
+    "updated_at": "2026-11-08T12:29:17.743434+00:00",
+    "logs": [
+      {
+        "log_type": "info",
+        "message": "Optimization job queued",
+        "data": null,
+        "id": "7573d586-0824-4efa-b09f-cd7724e91678",
+        "job_id": "e65e5300-8eb4-4700-92dc-ef78df10ea0b",
+        "created_at": "2026-11-08T12:29:08.193469+00:00"
+      },
+      {
+        "log_type": "info",
+        "message": "Starting promptim optimization",
+        "data": {
+          "config": {
+            "dev_split": null,
+            "evaluators": [
+              "a920ff87-3099-4c1e-9962-1cb45ed6851b"
+            ],
+            "num_epochs": 3,
+            "test_split": null,
+            "auto_commit": false,
+            "train_split": null,
+            "dataset_name": "ticket-router-thumbs-down-2026-11-08-12-26",
+            "message_index": 0,
+            "task_description": "Route support tickets for Acme into a category and a priority."
+          }
+        },
+        "id": "e324ca25-d916-448c-a613-9d0266b3a60f",
+        "job_id": "e65e5300-8eb4-4700-92dc-ef78df10ea0b",
+        "created_at": "2026-11-08T12:29:08.623830+00:00"
+      },
+      {
+        "log_type": "info",
+        "message": "Processing task description",
+        "data": {
+          "task_description": "Route support tickets for Acme into a category and a priority."
+        },
+        "id": "350dc65d-5119-4ca5-9ea3-fa150efab0cf",
+        "job_id": "e65e5300-8eb4-4700-92dc-ef78df10ea0b",
+        "created_at": "2026-11-08T12:29:08.635236+00:00"
+      },
+      {
+        "log_type": "info",
+        "message": "Dataset loaded",
+        "data": {
+          "dataset_name": "ticket-router-thumbs-down-2026-11-08-12-26"
+        },
+        "id": "7058c045-4f87-48c2-b1a1-e319f495f4ba",
+        "job_id": "e65e5300-8eb4-4700-92dc-ef78df10ea0b",
+        "created_at": "2026-11-08T12:29:09.647209+00:00"
+      },
+      {
+        "log_type": "info",
+        "message": "Training started",
+        "data": {
+          "num_epochs": 3,
+          "train_split": null
+        },
+        "id": "d133d0d3-21ff-4e17-ba33-850897ed2522",
+        "job_id": "e65e5300-8eb4-4700-92dc-ef78df10ea0b",
+        "created_at": "2026-11-08T12:29:10.657307+00:00"
+      },
+      {
+        "log_type": "info",
+        "message": "Training epoch 1",
+        "data": {
+          "epoch": 1
+        },
+        "id": "4aad7097-5d95-4a76-8009-299e42d7ea10",
+        "job_id": "e65e5300-8eb4-4700-92dc-ef78df10ea0b",
+        "created_at": "2026-11-08T12:29:10.672140+00:00"
+      },
+      {
+        "log_type": "info",
+        "message": "Training epoch 2",
+        "data": {
+          "epoch": 2
+        },
+        "id": "c64974fb-93d4-4c40-bb71-45466543a79f",
+        "job_id": "e65e5300-8eb4-4700-92dc-ef78df10ea0b",
+        "created_at": "2026-11-08T12:29:12.687388+00:00"
+      },
+      {
+        "log_type": "info",
+        "message": "Training epoch 3",
+        "data": {
+          "epoch": 3
+        },
+        "id": "0ee0d321-fb95-44b2-9a45-3332cd66f022",
+        "job_id": "e65e5300-8eb4-4700-92dc-ef78df10ea0b",
+        "created_at": "2026-11-08T12:29:14.706718+00:00"
+      },
+      {
+        "log_type": "info",
+        "message": "Evaluation completed",
+        "data": {
+          "dev_split": null
+        },
+        "id": "5dc7d00f-b051-4272-901c-6f240325f64f",
+        "job_id": "e65e5300-8eb4-4700-92dc-ef78df10ea0b",
+        "created_at": "2026-11-08T12:29:16.724194+00:00"
+      },
+      {
+        "log_type": "info",
+        "message": "Promptim optimization completed successfully",
+        "data": null,
+        "id": "ffd6feca-c100-4be5-ae75-1c8369294561",
+        "job_id": "e65e5300-8eb4-4700-92dc-ef78df10ea0b",
+        "created_at": "2026-11-08T12:29:17.734587+00:00"
+      }
+    ]
+  },
+  "logs": [
+    {
+      "log_type": "info",
+      "message": "Optimization job queued",
+      "data": null,
+      "id": "7573d586-0824-4efa-b09f-cd7724e91678",
+      "job_id": "e65e5300-8eb4-4700-92dc-ef78df10ea0b",
+      "created_at": "2026-11-08T12:29:08.193469+00:00"
+    },
+    {
+      "log_type": "info",
+      "message": "Starting promptim optimization",
+      "data": {
+        "config": {
+          "dev_split": null,
+          "evaluators": [
+            "a920ff87-3099-4c1e-9962-1cb45ed6851b"
+          ],
+          "num_epochs": 3,
+          "test_split": null,
+          "auto_commit": false,
+          "train_split": null,
+          "dataset_name": "ticket-router-thumbs-down-2026-11-08-12-26",
+          "message_index": 0,
+          "task_description": "Route support tickets for Acme into a category and a priority."
+        }
+      },
+      "id": "e324ca25-d916-448c-a613-9d0266b3a60f",
+      "job_id": "e65e5300-8eb4-4700-92dc-ef78df10ea0b",
+      "created_at": "2026-11-08T12:29:08.623830+00:00"
+    },
+    {
+      "log_type": "info",
+      "message": "Processing task description",
+      "data": {
+        "task_description": "Route support tickets for Acme into a category and a priority."
+      },
+      "id": "350dc65d-5119-4ca5-9ea3-fa150efab0cf",
+      "job_id": "e65e5300-8eb4-4700-92dc-ef78df10ea0b",
+      "created_at": "2026-11-08T12:29:08.635236+00:00"
+    },
+    {
+      "log_type": "info",
+      "message": "Dataset loaded",
+      "data": {
+        "dataset_name": "ticket-router-thumbs-down-2026-11-08-12-26"
+      },
+      "id": "7058c045-4f87-48c2-b1a1-e319f495f4ba",
+      "job_id": "e65e5300-8eb4-4700-92dc-ef78df10ea0b",
+      "created_at": "2026-11-08T12:29:09.647209+00:00"
+    },
+    {
+      "log_type": "info",
+      "message": "Training started",
+      "data": {
+        "num_epochs": 3,
+        "train_split": null
+      },
+      "id": "d133d0d3-21ff-4e17-ba33-850897ed2522",
+      "job_id": "e65e5300-8eb4-4700-92dc-ef78df10ea0b",
+      "created_at": "2026-11-08T12:29:10.657307+00:00"
+    },
+    {
+      "log_type": "info",
+      "message": "Training epoch 1",
+      "data": {
+        "epoch": 1
+      },
+      "id": "4aad7097-5d95-4a76-8009-299e42d7ea10",
+      "job_id": "e65e5300-8eb4-4700-92dc-ef78df10ea0b",
+      "created_at": "2026-11-08T12:29:10.672140+00:00"
+    },
+    {
+      "log_type": "info",
+      "message": "Training epoch 2",
+      "data": {
+        "epoch": 2
+      },
+      "id": "c64974fb-93d4-4c40-bb71-45466543a79f",
+      "job_id": "e65e5300-8eb4-4700-92dc-ef78df10ea0b",
+      "created_at": "2026-11-08T12:29:12.687388+00:00"
+    },
+    {
+      "log_type": "info",
+      "message": "Training epoch 3",
+      "data": {
+        "epoch": 3
+      },
+      "id": "0ee0d321-fb95-44b2-9a45-3332cd66f022",
+      "job_id": "e65e5300-8eb4-4700-92dc-ef78df10ea0b",
+      "created_at": "2026-11-08T12:29:14.706718+00:00"
+    },
+    {
+      "log_type": "info",
+      "message": "Evaluation completed",
+      "data": {
+        "dev_split": null
+      },
+      "id": "5dc7d00f-b051-4272-901c-6f240325f64f",
+      "job_id": "e65e5300-8eb4-4700-92dc-ef78df10ea0b",
+      "created_at": "2026-11-08T12:29:16.724194+00:00"
+    },
+    {
+      "log_type": "info",
+      "message": "Promptim optimization completed successfully",
+      "data": null,
+      "id": "ffd6feca-c100-4be5-ae75-1c8369294561",
+      "job_id": "e65e5300-8eb4-4700-92dc-ef78df10ea0b",
+      "created_at": "2026-11-08T12:29:17.734587+00:00"
+    }
+  ]
+}

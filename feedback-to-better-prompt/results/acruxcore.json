@@ -1,0 +1,63 @@
+{
+  "tool": "AcruxCore",
+  "stamp": "2026-11-08-12-46-20",
+  "v1Version": 1,
+  "trafficCorrect": 6,
+  "thumbsDown": 9,
+  "datasetExamples": 9,
+  "skipped": [],
+  "runStatus": "succeeded",
+  "runError": null,
+  "cells": [
+    {
+      "variant": "candidate-A",
+      "baseline": false,
+      "passRate": 1,
+      "avgScore": 100,
+      "scored": 9,
+      "n": 9
+    },
+    {
+      "variant": "candidate-B",
+      "baseline": false,
+      "passRate": 1,
+      "avgScore": 100,
+      "scored": 9,
+      "n": 9
+    },
+    {
+      "variant": "candidate-C",
+      "baseline": false,
+      "passRate": 1,
+      "avgScore": 100,
+      "scored": 9,
+      "n": 9
+    },
+    {
+      "variant": "production",
+      "baseline": true,
+      "passRate": 0.1111111111111111,
+      "avgScore": 13.333333333333334,
+      "scored": 9,
+      "n": 9
+    }
+  ],
+  "bestCandidate": {
+    "label": "candidate-A",
+    "rationale": "Added explicit priority rules for each category and clarified that access-blocking issues are P0, billing errors are P1, and feature requests are P2, overriding tone/urgency.",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You route support tickets for Acme, a project management app. Reply with JSON only, in this shape: {\"category\": \"account\" | \"billing\" | \"bug\" | \"feature_request\", \"priority\": \"P0\" | \"P1\" | \"P2\"}. Follow these rules strictly:\n1. Bugs involving data loss (e.g., comments disappearing) are P0, otherwise P1 for bugs without workaround and P2 if a workaround exists (e.g., web app works but mobile crashes).\n2. Billing errors (e.g., wrong charge, wrong seat count) are ALWAYS P1, regardless of customer's urgency tone.\n3. Account issues: if the user cannot access the product at all (e.g., SSO failure, 2FA rejection, password reset not arriving, locked out), category is always 'account' and priority P0. Profile settings that are not blocking access (e.g., avatar color) are account P2.\n4. Feature requests are always P2, no matter how angry or urgent the customer sounds.\n5. If a ticket mentions login, sign-in, passwords, 2FA, SSO, or profile settings, it must be classified as 'account'."
+      },
+      {
+        "role": "user",
+        "content": "Ticket: {{ticket}}"
+      }
+    ]
+  },
+  "promotedVersion": 2,
+  "runId": "8810a9c5-0dff-4e34-a4d3-2adfa045872e",
+  "promptId": "0d1b3aac-e439-48a7-b2ae-ed9c7bdecf42",
+  "datasetId": "03d7e366-abf5-4c09-a8c5-f4021307995e"
+}
