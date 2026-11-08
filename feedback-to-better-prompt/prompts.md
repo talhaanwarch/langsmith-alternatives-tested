@@ -11,10 +11,11 @@ Extracted with `grab_gemini_image.py`, resized to 1600px wide PNG.
 
 > Generate an image, 16:9, at least 1600px wide. Flat 2D vector diagram, white background, pastel rounded cards, navy text, no logos, no people, no charts. Use these exact strings verbatim and no other text. Title: "From Thumbs-Down to a Better Prompt". Six cards in a clockwise loop, joined by solid arrows, in this order: "User thumbs-down", "Reviewer comment", "Dataset", "LLM judge", "Optimizer rewrites", "Promote to production". A dashed arrow goes from "Promote to production" back to "User thumbs-down". Each card has one simple icon. Icons are pure pictograms with no letters or words. Generous empty margin on all sides.
 
-## 02-which-one.png ("Which One to Use")
+## 02-decision-chart.png ("Which One to Use")
 
-> Generate an image, 16:9, at least 1600px wide. Flat 2D vector decision diagram, white background, pastel rounded cards, navy text, no logos, no people, no charts. Use these exact strings verbatim and no other text. Title: "Which One to Use". Left column: four question cards stacked top to bottom, joined by short downward arrows labelled "no". Each question has an arrow labelled "yes" pointing right to one answer card. Questions and answers in order: "Need the prompt rewrite step in TypeScript?" to green card "AcruxCore"; "Already work in LangSmith and write Python?" to blue card "LangSmith"; "Want a managed judge on live traces?" to blue card "Langfuse"; "Already annotate spans with OpenTelemetry?" to blue card "Phoenix". Icons are pure pictograms with no letters or words. Generous empty margin on all sides.
+> Generate an image, 16:9, at least 1600px wide. Flat 2D vector decision diagram, white background, pastel rounded cards, navy text, no logos, no people, no charts. Use these exact strings verbatim and no other text. Title: "Which One to Use". Left column: four question cards stacked top to bottom, joined by short downward arrows labelled "no". Each question has an arrow labelled "yes" pointing right to one answer card. Questions and answers in order: "Want a built-in optimizer you can call from TypeScript?" to green card "AcruxCore"; "Already work in LangSmith and write Python?" to blue card "LangSmith"; "Want a managed judge on live traces?" to blue card "Langfuse"; "Already annotate spans with OpenTelemetry?" to blue card "Phoenix". Icons are pure pictograms with no letters or words. Generous empty margin on all sides.
 
 ## Rejected variants
 
-None.
+- 02 decision chart, first version: the question "Need the prompt rewrite step in TypeScript?" read as if the reader's prompt needed rewriting (owner). Replaced with "Want a built-in optimizer you can call from TypeScript?".
+

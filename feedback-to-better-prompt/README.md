@@ -17,7 +17,7 @@ with an LLM judge, then rewrite the prompt where the tool can.
 - `code/holdout-misses.ts`: lists the holdout tickets the promoted prompt gets wrong.
 - `code/baseline.ts`: sanity check of the first prompt, and of the same prompt with the policy written in.
 - `results/`: the JSON each script wrote on 8 November 2026.
-- `cover.png`, `01-feedback-loop.png`, `02-which-one.png`: the article's images. `prompts.md` has the Gemini prompts.
+- `cover.png`, `01-feedback-loop.png`, `02-decision-chart.png`: the article's images. `prompts.md` has the Gemini prompts.
 
 ## Run it
 
