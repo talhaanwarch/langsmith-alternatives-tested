@@ -16,3 +16,5 @@ Images for the article "Prompt Management in TypeScript: LangSmith vs Git vs 3 O
 # From User Feedback to a Better Prompt: code, results and images
 
 Code, results and images for the article "From User Feedback to a Better Prompt: LangSmith, Langfuse, Phoenix and AcruxCore in TypeScript", in `feedback-to-better-prompt/`. See its README to run it.
+
+Code, results and images for the article "Self-Hosting Langfuse vs Lighter Alternatives: Memory, Disk and Speed at 100,000 Traces", in `langfuse-selfhost/`. See its README to run it.
